@@ -1,0 +1,244 @@
+
+<div class="main">
+
+
+
+  /* START  container  */
+
+<div class="box">
+
+/* START  navbar  */
+<nav class="navbar navbar-light   container-fluid ">
+    <div class=" navbar-nav">
+      <span class="navbar-brand mb-0 ">SOL</span>
+    </div>
+    <div class="">Already using ? <a class="link" href="">sign in </a></div>
+  </nav>
+/* END  navbar  */
+
+
+
+
+
+
+/* START  body  */
+  <div class=" content ">
+
+<div class="row  ">
+
+<div class="col-md-6 " >
+
+<h1><strong>Create an account</strong></h1>
+
+
+  <mat-list> 
+    <mat-list-item *ngFor="let item of items">
+     <mat-icon mat-list-icon> <i :class={{item.icon}}></i></mat-icon> 
+      <div mat-line>{{item.name}}</div> 
+    </mat-list-item>
+  </mat-list> 
+
+
+
+
+</div>
+<div class="col-md-6"  >
+
+
+
+  <form [formGroup]="Form"  (ngSubmit)="submit()">
+
+    <div class="row g-0 ">
+          <mat-form-field class="example-full-width"    appearance="outline" [ngClass]="{'mat-form-field-invalid':Form.controls.FullName.invalid }">
+      <mat-label>Full Name</mat-label>
+      <input type="text" matInput formControlName="FullName" >
+      <mat-icon matSuffix *ngIf=" Form.controls.FullName.dirty || Form.controls.FullName.touched "  >
+        <i *ngIf="Form.controls.FullName.valid " class="fa-solid fa-check"></i>
+        <i  *ngIf="Form.controls.FullName.invalid " class="fa-solid fa-xmark"></i>
+      
+      </mat-icon>
+
+
+      
+      <mat-error *ngIf="Form.controls.FullName.hasError('required') && (Form.controls.FullName.dirty || Form.controls.FullName.touched )">
+        Full Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    </div>
+
+<div class="row g-0 ">
+    <mat-form-field class="example-full-width" appearance="outline" [ngClass]="{'mat-form-field-invalid':Form.controls.Email.invalid }">
+      <mat-label>Email</mat-label>
+      <input  type="email" matInput formControlName="Email" placeholder="Ex. pat@example.com">
+     
+      <mat-icon matSuffix *ngIf=" Form.controls.Email.dirty || Form.controls.Email.touched "  >
+        <i *ngIf="Form.controls.Email.valid " class="fa-solid fa-check"></i>
+        <i  *ngIf="Form.controls.Email.invalid " class="fa-solid fa-xmark"></i>
+      
+      </mat-icon>
+     
+     
+      <mat-error  *ngIf="Form.controls['Email'].hasError('pattern') && ( Form.controls.Email.dirty || Form.controls.Email.touched)">
+        Please enter a valid Email
+      </mat-error>
+      <mat-error *ngIf="Form.controls['Email'].hasError('required') && ( Form.controls.Email.dirty || Form.controls.Email.touched)">
+        Email is <strong>required</strong>
+      </mat-error>
+
+  
+    
+    </mat-form-field>
+  </div>
+
+
+  <div class="row g-0 ">
+    <mat-form-field class="example-full-width" appearance="outline" [ngClass]="{'mat-form-field-invalid':Form.controls.Phone.invalid }">
+      <mat-label>Phone Number</mat-label>
+     
+      <input  placeholder="ex. +(212)06-44-67-92-21" type="tel" matInput formControlName="Phone"  angularFormsMask="+(DDD)D-DD-DD-DD-DD" >
+      <mat-icon matSuffix *ngIf=" Form.controls.Phone.dirty || Form.controls.Phone.touched "  >
+        <i *ngIf="Form.controls.Phone.valid " class="fa-solid fa-check"></i>
+        <i  *ngIf="Form.controls.Phone.invalid " class="fa-solid fa-xmark"></i>
+      
+      </mat-icon>
+    
+    
+    
+      
+      <mat-error  *ngIf="Form.controls['Phone'].hasError('pattern') && ( Form.controls.Phone.dirty || Form.controls.Phone.touched)">
+        Please enter a valid Phone Number
+      </mat-error>
+      <mat-error *ngIf="Form.controls['Phone'].hasError('required') && ( Form.controls.Phone.dirty || Form.controls.Phone.touched)">
+        Phone is <strong>required</strong>
+      </mat-error>
+    
+    </mat-form-field>
+  </div>
+
+    <div class="row g-0 ">
+    <mat-form-field class="example-full-width" appearance="outline" [ngClass]="{'mat-form-field-invalid':Form.controls.Password.invalid }">
+      <mat-label>Password</mat-label>
+      <input #password  (keyup)="trigger(password.value)"  [type]="hidepassword ? 'password' : 'text'" matInput formControlName="Password">
+     
+        <mat-icon class="passwordicon" matSuffix  (click)="hidepassword = !hidepassword">
+          {{hidepassword ? 'visibility_off_outline' : 'visibility_outline'}}
+        
+         
+
+        </mat-icon>
+      
+     
+     
+     
+        
+        <mat-error  *ngIf="Form.controls['Password'].hasError('pattern') && ( Form.controls.Password.dirty || Form.controls.Password.touched)">
+          Please enter a valid Password
+        </mat-error>
+        <mat-error *ngIf="Form.controls['Password'].hasError('required') && ( Form.controls.Password.dirty || Form.controls.Password.touched)">
+          Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <div id="validationPassword" class=" validationPassword">
+      <div id="text"></div>
+         <div id="indicator">
+      <mat-progress-bar mode="determinate" [color]="progressColor" [value]="progressvalue"></mat-progress-bar>
+     
+    </div>
+    <small id="comment"></small>
+  </div>
+ 
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="row g-0 ">
+    <mat-form-field  class="example-full-width" appearance="outline" >
+      <mat-label>Date</mat-label>
+     
+
+      <input (focus)="datepicker.open()"  placeholder="DD/MM/YYYY" matInput [matDatepicker]="datepicker" formControlName="Date" >
+    
+      <mat-datepicker-toggle matSuffix [for]="datepicker">
+
+        <mat-icon *ngIf=" !Form.controls.Date.dirty && !Form.controls.Date.touched " matDatepickerToggleIcon>insert_invitation</mat-icon>
+
+        <mat-icon matDatepickerToggleIcon *ngIf=" Form.controls.Date.dirty || Form.controls.Date.touched "  >
+          <i *ngIf="Form.controls.Date.valid " class="fa-solid fa-check"></i>
+          <i  *ngIf="Form.controls.Date.invalid " class="fa-solid fa-xmark"></i>
+        
+        </mat-icon>
+
+      </mat-datepicker-toggle>
+
+
+
+
+
+      <mat-datepicker #datepicker>
+        
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Set Date</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+
+
+
+
+
+
+
+      
+      <mat-error  *ngIf="Form.controls['Date'].hasError('pattern') && ( Form.controls.Date.dirty || Form.controls.Date.touched)">
+        Please enter a valid Date
+      </mat-error>
+      <mat-error *ngIf="Form.controls['Date'].hasError('Date') && ( Form.controls.Date.dirty || Form.controls.Date.touched)">
+        Date is <strong>required</strong>
+      </mat-error>
+    
+    </mat-form-field>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="row g-0 ">
+  <button mat-flat-button class="signUpbtn" type="submit" >Sign up</button>
+</div>
+<div class="row">
+  <mat-checkbox  required  color="primary" formControlName="Agree" class="mt-2">I agree to our Terms of Service and Privacy Policy</mat-checkbox>
+
+ 
+  <mat-error *ngIf="Form.controls['Agree'].invalid  && ( Form.controls.Agree.dirty || Form.controls.Agree.touched) ">
+   please Agree with Our Terms 
+  </mat-error>
+
+</div>
+  </form>
+
+  
+
+</div>
+
+</div>
+
+
+</div>
+/* END  body  */
+
+</div>
+/* END  container  */
+
+</div>

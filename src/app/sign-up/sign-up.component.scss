@@ -1,0 +1,179 @@
+.main {
+  background-color: rgb(237, 244, 255);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background-color: white;
+  width: 88%;
+  height: 88%;
+  border-radius: 1%;
+  position: absolute;
+}
+.navbar {
+  border-bottom: 1px solid rgb(216, 214, 214);
+  height: 15%;
+}
+.navbar-brand {
+  font-family: "roboto", cursive;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.link {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.content {
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content > .row {
+  position: relative;
+  width: 75%;
+}
+
+.content .row div {
+  white-space: normal;
+  /* padding: 0% 9% 9% 9%; */
+}
+
+.content .row div h1 {
+  font-size: 3em;
+  line-height: 1.3em;
+}
+
+.passwordicon {
+    color: #8b8e91;
+}
+
+:host ::ng-deep .mat-list-text {
+  padding-left: 0px !important;
+  font-size: 14px;
+  margin-left: 5%;
+  margin-top: 3%;
+
+}
+
+:host ::ng-deep .mat-list-item-content {
+  padding: 0px !important ;
+
+}
+
+:host ::ng-deep mat-list-item {
+  height: 2.3em !important ;
+  
+}
+
+
+:host ::ng-deep mat-list-item i {
+    color: rgb(57, 92, 167);
+  }
+
+:host ::ng-deep mat-icon {
+  font-size: 23px !important;
+}
+
+:host ::ng-deep mat-icon .fa-check {
+  color: #6ac16a;
+}
+:host ::ng-deep mat-icon .fa-xmark {
+  color: red;
+}
+
+:host ::ng-deep .mat-checkbox-label {
+  font-size: 0.9em;
+  color: gray;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.6em 0px !important;
+}
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+::ng-deep  .mat-datepicker-actions{
+  justify-content: center !important;
+}
+
+::ng-deep .mat-datepicker-actions button:first-child {
+background-color: #f1f1f1;
+font-weight: bold;
+}
+
+
+::ng-deep .mat-datepicker-actions button {
+  width: 40%;
+  border-radius: 2%;
+  }
+
+::ng-deep
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+.signUpbtn {
+  background-color: #3352ea;
+  color: white;
+  height: 55px;
+  font-size: 1.3em;
+}
+
+
+/* 
+.mat-error{
+    background-color: red !important;
+}
+
+
+.mat-week{
+    background-color: orange !important;
+}
+.mat-success{
+    background-color: green !important;
+} 
+ */
+
+.validationPassword {
+  width: 148px;
+  position: absolute;
+  right: -146px;
+  background: white;
+  padding: 2%;
+  box-shadow: 0px 0px 6px -2px black;
+  border-radius: 6px;
+  min-height: 100px;
+  display: block;
+}
+
+.validationPassword #indicator {
+  height: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.validationPassword small {
+  color: gray;
+}
+
+.validationPassword {
+  display: none;
+}
+
+.validationPassword #text {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+
+
